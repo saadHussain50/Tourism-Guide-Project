@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hill Stations Near Hyderabad</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e5799, #207cca);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-top: 0.5rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .hill-stations {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-title {
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        
+        .distance {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .description {
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #555;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn {
+            padding: 0.6rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        
+        .btn-map {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+        }
+        
+        .btn-map:hover {
+            background-color: #d5dbdb;
+        }
+        
+        .btn-pay {
+            background-color: #27ae60;
+            color: white;
+        }
+        
+        .btn-pay:hover {
+            background-color: #219955;
+        }
+        
+        .btn-icon {
+            margin-right: 0.4rem;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hill-stations {
+                grid-template-columns: 1fr;
+            }
+            
+            .card-image {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Scenic Hill Stations Near Hyderabad</h1>
+            <p class="subtitle">Explore the beautiful retreats around the City of Pearls</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="hill-stations">
+            <!-- Hill Station 1 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="C:\Users\saadh\OneDrive\Desktop\hills\1_veZM3h68O2HU8UOUjYMAmQ.jpg" alt="Ananthagiri Hills">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Ananthagiri Hills</h2>
+                    <span class="distance">70 km from Hyderabad</span>
+                    <p class="description">Nestled in the Western Ghats, Ananthagiri Hills is known for its dense forests, ancient caves, and the 400-year-old Anantha Padmanabha Swamy Temple. Perfect for trekking and nature walks.</p>
+                    <div class="buttons">
+                        <a href="https://maps.app.goo.gl/SqLp2G2f1yRafvZc8" class="btn btn-map">
+                            <span class="btn-icon">📍</span> View on Map
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hill Station 2 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="C:\Users\saadh\OneDrive\Desktop\hills\Horsley-Hills-2.jpg" alt="Horsley Hills">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Horsley Hills</h2>
+                    <span class="distance">140 km from Hyderabad</span>
+                    <p class="description">Known as "Andhra's Ooty," Horsley Hills offers a cool climate, dense forests, and breathtaking views. Visit the Environmental Park and enjoy adventure activities like zorbing and rappelling.</p>
+                    <div class="buttons">
+                        <a href="https://maps.app.goo.gl/nxGwV6TpaWEeyprL7" class="btn btn-map">
+                            <span class="btn-icon">📍</span> View on Map
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hill Station 3 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="C:\Users\saadh\OneDrive\Desktop\hills\Exploring-Araku-Valley.jpg" alt="Araku Valley">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Araku Valley</h2>
+                    <span class="distance">390 km from Hyderabad</span>
+                    <p class="description">Famous for its coffee plantations, tribal culture, and scenic beauty, Araku Valley is a paradise for nature lovers. Don't miss the Borra Caves and Tribal Museum when visiting.</p>
+                    <div class="buttons">
+                        <a href="https://maps.app.goo.gl/acPRaJzzuTnjSM4C7" class="btn btn-map">
+                            <span class="btn-icon">📍</span> View on Map
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hill Station 4 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="C:\Users\saadh\OneDrive\Desktop\hills\Srisailam-Dam.jpg" alt="Srisailam">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Srisailam</h2>
+                    <span class="distance">230 km from Hyderabad</span>
+                    <p class="description">Known for the famous Mallikarjuna Jyotirlinga temple, Srisailam offers a blend of religious importance and natural beauty with its lush forests, dam, and wildlife sanctuary.</p>
+                    <div class="buttons">
+                        <a href="#" class="btn btn-map">
+                            <span class="btn-icon">📍</span> View on Map
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hill Station 5 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="C:\Users\saadh\OneDrive\Desktop\hills\photo-1674926680322-1d43798c2964.avif" alt="Nallamala Hills">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Nallamala Hills</h2>
+                    <span class="distance">150 km from Hyderabad</span>
+                    <p class="description">Part of the Eastern Ghats, Nallamala Hills offers dense forests, unique flora and fauna, and is home to the Nagarjunasagar-Srisailam Tiger Reserve. Perfect for wildlife enthusiasts.</p>
+                    <div class="buttons">
+                        <a href="https://maps.app.goo.gl/6QgLsNCuofukU3h29" class="btn btn-map">
+                            <span class="btn-icon">📍</span> View on Map
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hill Station 6 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="C:\Users\saadh\OneDrive\Desktop\hills\1482816125_img_9810.jpg" alt="Mahbubnagar">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Mahbubnagar</h2>
+                    <span class="distance">100 km from Hyderabad</span>
+                    <p class="description">Known for its historical significance, Mahbubnagar offers Pillalamarri (a 700-year-old banyan tree), Koilsagar Project, and the Mallela Theertham waterfall nestled in the hills.</p>
+                    <div class="buttons">
+                        <a href="https://maps.app.goo.gl/mK5bYH18iiiQb5FQA" class="btn btn-map">
+                            <span class="btn-icon">📍</span> View on Map
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hill Station 7 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="C:\Users\saadh\OneDrive\Desktop\hills\R.jpeg" alt="Medak">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Medak Hills</h2>
+                    <span class="distance">90 km from Hyderabad</span>
+                    <p class="description">Medak offers scenic hills, the impressive Medak Cathedral, and the Pocharam Wildlife Sanctuary. The region is known for its pleasant climate and picturesque landscapes.</p>
+                    <div class="buttons">
+                        <a href="https://maps.app.goo.gl/Ft18uknMqmfxS2sw9" class="btn btn-map">
+                            <span class="btn-icon">📍</span> View on Map
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hill Station 8 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="C:\Users\saadh\OneDrive\Desktop\hills\7903.jpg" alt="Papikonda Hills">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Papikonda Hills</h2>
+                    <span class="distance">320 km from Hyderabad</span>
+                    <p class="description">Part of the Eastern Ghats, Papikonda National Park offers stunning hills, dense forests, and diverse wildlife. The Godavari River cutting through the hills creates a magnificent landscape.</p>
+                    <div class="buttons">
+                        <a href="https://maps.app.goo.gl/jWGT4t4r68Rh4Fa9A" class="btn btn-map">
+                            <span class="btn-icon">📍</span> View on Map
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hill Station 9 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="C:\Users\saadh\OneDrive\Desktop\hills\20131222_171958-768x576.jpg" alt="Khajaguda Hills">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Khajaguda Hills</h2>
+                    <span class="distance">15 km from Hyderabad</span>
+                    <p class="description">Located right within the city limits, Khajaguda Hills is a popular spot for rock climbing, hiking, and sunset viewing. The ancient rock formations and serene lake make it a perfect urban getaway for locals and tourists alike.</p>
+                    <div class="buttons">
+                        <a href="https://maps.app.goo.gl/jvfcRJLyjFNvHmGm6" class="btn btn-map">
+                            <span class="btn-icon">📍</span> View on Map
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Hyderabad Hill Stations Guide. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
