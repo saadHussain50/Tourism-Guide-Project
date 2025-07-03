@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Park Ticket Booking</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, purple, #00f2fe);
+            color: #333;
+        }
+
+        .booking-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .booking-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .ticket-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+        }
+
+        .ticket-type {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        button {
+            padding: 5px 15px;
+            border: none;
+            background: #3498db;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 20px;
+            background: #2ecc71;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .confirmation {
+            display: none;
+            background: #2ecc71;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .ticket-details {
+            margin-top: 20px;
+            padding: 20px;
+            background: #060101;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="booking-container">
+        <div class="booking-header">
+            <h1 id="parkName">Park Ticket Booking</h1>
+        </div>
+
+        <form id="bookingForm">
+            <div class="ticket-section">
+                <h3>Adult Tickets (12+ years)</h3>
+                <div class="ticket-type">
+                    <span>Price: ₹50 per person</span>
+                    <div class="quantity-selector">
+                        <button type="button" onclick="updateQuantity('adult', -1)">-</button>
+                        <span id="adultQuantity">0</span>
+                        <button type="button" onclick="updateQuantity('adult', 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ticket-section">
+                <h3>Child Tickets (5-11 years)</h3>
+                <div class="ticket-type">
+                    <span>Price: ₹30 per person</span>
+                    <div class="quantity-selector">
+                        <button type="button" onclick="updateQuantity('child', -1)">-</button>
+                        <span id="childQuantity">0</span>
+                        <button type="button" onclick="updateQuantity('child', 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ticket-section">
+                <h3>Total Amount: ₹<span id="totalAmount">0</span></h3>
+            </div>
+
+            <button type="submit" class="submit-btn">Book Now</button>
+            
+        </form>
+
+        <div id="confirmation" class="confirmation">
+            <h2>Booking Confirmed!</h2>
+            <div class="ticket-details">
+                <h3>Booking Reference: <span id="bookingRef"></span></h3>
+                <p>Park: <span id="confirmedPark"></span></p>
+                <p>Adult Tickets: <span id="confirmedAdult">0</span></p>
+                <p>Child Tickets: <span id="confirmedChild">0</span></p>
+                <p>Total Amount: ₹<span id="confirmedAmount">0</span></p>
+                <p>Date: <span id="bookingDate"></span></p>
+                <p><strong>Please Take a Screenshot and show this confirmation at the park entrance. The reference no. is in "my tickets" page.</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let adultCount = 0;
+        let childCount = 0;
+        const ADULT_PRICE = 50;
+        const CHILD_PRICE = 30;
+
+        // Get park name from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const parkName = urlParams.get('park');
+        document.getElementById('parkName').textContent = `Book Tickets - ${parkName}`;
+
+        function updateQuantity(type, change) {
+            if (type === 'adult') {
+                adultCount = Math.max(0, adultCount + change);
+                document.getElementById('adultQuantity').textContent = adultCount;
+            } else {
+                childCount = Math.max(0, childCount + change);
+                document.getElementById('childQuantity').textContent = childCount;
+            }
+            updateTotal();
+        }
+
+        function updateTotal() {
+            const total = (adultCount * ADULT_PRICE) + (childCount * CHILD_PRICE);
+            document.getElementById('totalAmount').textContent = total;
+        }
+
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (adultCount === 0 && childCount === 0) {
+                alert('Please select at least one ticket');
+                return;
+            }
+
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            const bookingRef = 'TKT' + Date.now().toString().slice(-6);
+            const total = (adultCount * ADULT_PRICE) + (childCount * CHILD_PRICE);
+            const bookingDate = new Date().toISOString();
+
+            // Create booking object
+            const booking = {
+                bookingRef,
+                parkName,
+                adultCount,
+                childCount,
+                total,
+                date: bookingDate,
+                userId: currentUser.email,
+                userName: currentUser.name,
+                status: 'Active'
+            };
+
+            // Store in parkBookings for admin
+            const adminBookings = JSON.parse(localStorage.getItem('parkBookings') || '[]');
+            adminBookings.push(booking);
+            localStorage.setItem('parkBookings', JSON.stringify(adminBookings));
+
+            // Store in userTickets for my tickets page
+            const userTickets = JSON.parse(localStorage.getItem(`userTickets_${currentUser.email}`) || '[]');
+            userTickets.push(booking);
+            localStorage.setItem(`userTickets_${currentUser.email}`, JSON.stringify(userTickets));
+
+            // Update confirmation details
+            document.getElementById('bookingRef').textContent = bookingRef;
+            document.getElementById('confirmedPark').textContent = parkName;
+            document.getElementById('confirmedAdult').textContent = adultCount;
+            document.getElementById('confirmedChild').textContent = childCount;
+            document.getElementById('confirmedAmount').textContent = total;
+            document.getElementById('bookingDate').textContent = new Date(bookingDate).toLocaleDateString();
+
+            // Show confirmation
+            document.getElementById('confirmation').style.display = 'block';
+
+            // Reset form
+            adultCount = 0;
+            childCount = 0;
+            document.getElementById('adultQuantity').textContent = '0';
+            document.getElementById('childQuantity').textContent = '0';
+            updateTotal();
+        });
+    </script>
+</body>
+</html>
