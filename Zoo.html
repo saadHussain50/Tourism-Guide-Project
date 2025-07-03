@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoos in Hyderabad</title>
+    <!-- Add these animation styles after your existing styles -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #2e7d32;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-transform: uppercase;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin: 5px 0 0;
+        }
+
+        .zoo-list {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .zoo-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            transition: transform 0.3s ease;
+        }
+
+        .zoo-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .zoo-card h2 {
+            color: #2e7d32;
+            margin-top: 0;
+            font-size: 1.8em;
+        }
+
+        .zoo-card p {
+            margin: 10px 0;
+        }
+
+        .zoo-card a {
+            color: #1e88e5;
+            text-decoration: none;
+        }
+
+        .zoo-card a:hover {
+            text-decoration: underline;
+        }
+
+        .zoo-card ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .zoo-card ul li {
+            margin: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .zoo-card ul li:before {
+            content: "🐾";
+            position: absolute;
+            left: 0;
+        }
+
+        .bonus {
+            border: 2px dashed #ff9800;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2e7d32;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInHeader {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            animation: slideInHeader 1s ease-out;
+        }
+
+        .zoo-card {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .zoo-card:nth-child(1) { animation-delay: 0.2s; }
+        .zoo-card:nth-child(2) { animation-delay: 0.4s; }
+        .zoo-card:nth-child(3) { animation-delay: 0.6s; }
+        .zoo-card:nth-child(4) { animation-delay: 0.8s; }
+        .zoo-card:nth-child(5) { animation-delay: 1.0s; }
+        .zoo-card:nth-child(6) { animation-delay: 1.2s; }
+        .zoo-card:nth-child(7) { animation-delay: 1.4s; }
+
+        .zoo-card img {
+            transition: transform 0.3s ease;
+        }
+
+        .zoo-card:hover img {
+            transform: scale(1.05);
+        }
+
+        footer {
+            animation: fadeInUp 0.8s ease-out;
+            animation-delay: 1.6s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        /* Add smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Add animation for links */
+        .zoo-card a {
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .zoo-card a:hover {
+            color: #2e7d32;
+            transform: translateX(5px);
+        }
+
+        /* Add animation for list items */
+        .zoo-card ul li {
+            transition: transform 0.3s ease;
+        }
+
+        .zoo-card ul li:hover {
+            transform: translateX(10px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Explore the Wild Side of Hyderabad</h1>
+        <p>Top Zoos & Animal Attractions</p>
+    </header>
+
+    <section class="zoo-list">
+        <div class="zoo-card">
+            <img src="C:\Users\saadh\OneDrive\Desktop\zoo\20220571735293Nehuru_zoological_park_DK.jpg" alt="Nehru Zoological Park" height="200px" width="400px">    
+            <h2>1. Nehru Zoological Park</h2>
+            <p><strong>Location:</strong> Bahadurpura, near Mir Alam Tank - <a href="https://maps.app.goo.gl/ssdLpnhLRXn1qv9VA?g_st=aw" target="_blank">View on Map</a></p>
+            <p><strong>Why Visit?</strong> Spanning 380 acres, this is one of Asia’s finest zoos with over 1,500 species!</p>
+            <ul>
+                <li>Lion Safari – Thrill of the wild!</li>
+                <li>Nocturnal House – Night creatures in daylight.</li>
+                <li>Butterfly Park – A colorful escape.</li>
+            </ul>
+            <p><em>Perfect For:</em> Wildlife lovers and families.</p>
+            <a href="zoo-booking.html" target="_blank" class="location-link">Book Now</a>
+        </div>
+
+        <div class="zoo-card">
+            <img src="C:\Users\saadh\OneDrive\Desktop\zoo\deer-kasu-brahmananda-reddy.webp" alt="Deer Park at KBR National Park" height="200px" width="400px">
+            <h2>2. Deer Park at KBR National Park</h2>
+            <p><strong>Location:</strong> Jubilee Hills - <a href="https://maps.app.goo.gl/m8FCrEVeMgM15ueY9?g_st=aw" target="_blank">View on Map</a></p>
+            <p><strong>Why Visit?</strong> A serene escape with free-roaming deer and peacocks.</p>
+            <ul>
+                <li>Spot herds of spotted deer.</li>
+                <li>Peacocks flaunting vibrant feathers.</li>
+                <li>Relaxing walking trails.</li>
+            </ul>
+            <p><em>Perfect For:</em> Nature strolls and picnics.</p>
+            <a href="zoo-booking.html" target="_blank" class="location-link">Book Now</a>
+        </div>
+
+        <div class="zoo-card">
+            <img src="C:\Users\saadh\OneDrive\Desktop\zoo\Ranau-Rabbit-Farm.webp" alt= "ANR Rabbit Farm" height="200px" width="400px">
+            <h2>3. ANR Rabbit Farm</h2>
+            <p><strong>Location:</strong> Near Manchirevula, Narsingi - <a href="https://maps.app.goo.gl/RRx9tGHVoC7b4Sgc9?g_st=aw" target="_blank">View on Map</a></p>
+            <p><strong>Why Visit?</strong> A quirky farm with fluffy rabbits for a unique experience.</p>
+            <ul>
+                <li>Pet and feed adorable rabbits.</li>
+                <li>Great for kids’ learning.</li>
+            </ul>
+            <p><em>Perfect For:</em> Animal lovers seeking something different.</p>
+            <a href="zoo-booking.html" target="_blank" class="location-link">Book Now</a>
+        </div>
+
+        <div class="zoo-card">
+            <img src="C:\Users\saadh\OneDrive\Desktop\zoo\shutterstock-1973449922.webp" alt= "Mir Alam Tank" height="200px" width="400px">
+            <h2>4. Mir Alam Tank</h2>
+            <p><strong>Location:</strong> Adjacent to Nehru Zoological Park - <a href="https://maps.app.goo.gl/x9sGip31foez9Ex66?g_st=aw" target="_blank">View on Map</a></p>
+            <p><strong>Why Visit?</strong> A scenic spot with migratory birds like flamingos and pelicans.</p>
+            <ul>
+                <li>Birdwatching paradise.</li>
+                <li>Stunning water views.</li>
+            </ul>
+            <p><em>Perfect For:</em> Bird enthusiasts and photographers.</p>
+            <a href="zoo-booking.html" target="_blank" class="location-link">Book Now</a>
+        </div>
+ 
+        <div class="zoo-card">
+            <img src="C:\Users\saadh\OneDrive\Desktop\zoo\AGroupofDeers_20200525192644.jpg" alt= "Mrugavani National Park" height="200px" width="400px">
+            <h2>5. Mrugavani National Park</h2>
+            <p><strong>Location:</strong> Chilkur, near Hyderabad - <a href="https://maps.app.goo.gl/RMojtEjYW17pWhzo6?g_st=aw" target="_blank">View on Map</a></p>
+            <p><strong>Why Visit?</strong> A 700-acre park with deer, wild boars, and a mini zoo-like setup.</p>
+            <ul>
+                <li>Jungle safari trails.</li>
+                <li>Spot peacocks and rabbits.</li>
+            </ul>
+            <p><em>Perfect For:</em> Adventure seekers and nature lovers.</p>
+            <a href="zoo-booking.html" target="_blank" class="location-link">Book Now</a>
+        </div>
+
+        <div class="zoo-card">
+            <img src="C:\Users\saadh\OneDrive\Desktop\zoo\DSC8375.jpeg" alt="Mahavir Harina Vanasthali National Park" height="200px" width="400px">
+            <h2>6. Mahavir Harina Vanasthali National Park</h2>
+            <p><strong>Location:</strong> Vanasthalipuram, Hyderabad - <a href="https://maps.app.goo.gl/GvXCTKyUqFmPDvuB7?g_st=aw" target="_blank">View on Map</a></p>
+            <p><strong>Why Visit?</strong> A 3,600-acre park famous for blackbucks and other wildlife.</p>
+            <ul>
+                <li>Blackbuck spotting.</li>
+                <li>Rich birdlife.</li>
+            </ul>
+            <p><em>Perfect For:</em> Wildlife enthusiasts and photographers.</p>
+            <a href="zoo-booking.html" target="_blank" class="location-link">Book Now</a>
+        </div>
+
+        <div class="zoo-card bonus">
+            <img src="C:\Users\saadh\OneDrive\Desktop\zoo\karimnagar-deer-park-hyderabad.jpg" alt="Kinnerasani Deer Park" height="200px" width="400px">
+            <h2>7. Kinnerasani Deer Park</h2>
+            <p><strong>Location:</strong> Near Kothagudem, ~150 km from Hyderabad - <a href="https://maps.app.goo.gl/FFxg5HTDrzVqwHJ9A?g_st=aw" target="_blank">View on Map</a></p>
+            <p><strong>Why Visit?</strong> A scenic deer park near a reservoir, worth a day trip.</p>
+            <ul>
+                <li>Deer in natural habitat.</li>
+                <li>Boating and birdwatching.</li>
+            </ul>
+            <p><em>Perfect For:</em> Day trippers and families.</p>
+            <!-- Update each Book Now link -->
+            <a href="zoo-booking.html" class="location-link">Book Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>Dive into Hyderabad’s wildlife wonders today!</p>
+    </footer>
+</body>
+</html>
