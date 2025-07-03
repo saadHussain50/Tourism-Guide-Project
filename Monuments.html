@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historical Monuments of Hyderabad</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-color: #541388;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            animation: fadeIn 1s ease-out forwards;
+        }
+        .subtitle {
+            margin-top: 1rem;
+            font-style: italic;
+            animation: fadeIn 1.2s ease-out forwards;
+            opacity: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        /* Add these new animation styles */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .monuments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .monument-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .monument-card:hover {
+            transform: translateY(-5px);
+        }
+        .monument-image {
+            height: 200px;
+            width: 100%;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+        }
+        .monument-content {
+            padding: 1.5rem;
+        }
+        h2 {
+            color: #541388;
+            margin-bottom: 0.5rem;
+        }
+        .monument-desc {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .map-btn {
+            display: inline-block;
+            background-color: #FF8C42;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .map-btn:hover {
+            background-color: #E85D04;
+        }
+        .book-btn {
+            display: inline-block;
+            background-color: #2E933C;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .book-btn:hover {
+            background-color: #1F6A28;
+        }
+        footer {
+            background-color: #541388;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Historical Monuments of Hyderabad</h1>
+        <p class="subtitle">Exploring the Architectural Heritage of the City of Pearls</p>
+    </header>
+    <div class="container">
+        <div class="monuments-grid">
+            <!-- Monument 1: Charminar -->
+            <div class="monument-card">
+                <div class="monument-image">
+                    <img src="C:\Users\saadh\OneDrive\Desktop\monuments\R.jpeg" alt="Charminar" height="200px" width="450px">
+                </div>
+                <div class="monument-content">
+                    <h2>Charminar</h2>
+                    <p class="monument-desc">Built in 1591 by Muhammad Quli Qutb Shah, the Charminar is a historic mosque and monument featuring four grand arches with minarets. The structure stands as the iconic symbol of Hyderabad, surrounded by bustling bazaars.</p>
+                    <div class="buttons">
+                        <a href="https://maps.app.goo.gl/bVguqaBAHpWmLe3W7" class="map-btn">View on Map</a>
+                        <a href="monuments-booking.html?monument=Charminar" class="book-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monument 3: Qutb Shahi Tombs -->
+            <div class="monument-card">
+                <div class="monument-image">
+                    <img src="C:\Users\saadh\OneDrive\Desktop\monuments\quli-qutb-shahi-tombs-hyderabad.webp" alt="Qutb Shahi Tombs" height="200px" width="450px" >
+                </div>
+                <div class="monument-content">
+                    <h2>Qutb Shahi Tombs</h2>
+                    <p class="monument-desc">Located near Golconda Fort, this necropolis contains the tombs and mosques built by the Qutb Shahi rulers. The Indo-Persian architectural style showcases intricate stonework and elegant domes spanning the 16th and 17th centuries.</p>
+                    <!-- For Qutb Shahi Tombs -->
+                    <div class="buttons">
+                        <a href="https://maps.app.goo.gl/ctqr3UHZsxtVipCr8" class="map-btn">View on Map</a>
+                        <a href="monuments-booking.html?monument=Qutb+Shahi+Tombs" class="book-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monument 4: Mecca Masjid -->
+            <div class="monument-card">
+                <div class="monument-image">
+                    <img src="C:\Users\saadh\OneDrive\Desktop\monuments\fc7e8261e738f537225ca344d57ee517.jpg" alt="Mecca Masjid" height="200px" width="450px">
+                </div>
+                <div class="monument-content">
+                    <h2>Mecca Masjid</h2>
+                    <p class="monument-desc">One of the oldest and largest mosques in India, Mecca Masjid was built during the 17th century by Muhammad Quli Qutb Shah. The bricks used in the central arch were made from soil brought from Mecca, giving the mosque its name.</p>
+                     <!-- For Mecca Masjid -->
+                     <div class="buttons">
+                        <a href="https://maps.app.goo.gl/grd7Q88f5YQM3x9R9" class="map-btn">View on Map</a>
+                        <a href="monuments-booking.html?monument=Mecca+Masjid" class="book-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monument 5: Chowmahalla Palace -->
+            <div class="monument-card">
+                <div class="monument-image">
+                    <img src="C:\Users\saadh\OneDrive\Desktop\monuments\a77a97fa7e378b28ac4314104ae342a5.jpg" alt="Chowmahalla Palace" height="200px" width="450px">
+                </div>
+                <div class="monument-content">
+                    <h2>Chowmahalla Palace</h2>
+                    <p class="monument-desc">The official residence of the Nizams of Hyderabad, this grand palace complex was built in the 18th century. Featuring four palaces, magnificent courtyards, and a collection of vintage cars, it represents the opulence of the Asaf Jahi dynasty.</p>
+                     <!-- For Chowmahalla Palace -->
+                     <div class="buttons">
+                        <a href="https://maps.app.goo.gl/NHqDnQi6exmGrty87" class="map-btn">View on Map</a>
+                        <a href="monuments-booking.html?monument=Chowmahalla+Palace" class="book-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monument 6: Taramati Baradari -->
+            <div class="monument-card">
+                <div class="monument-image">
+                    <img src="C:\Users\saadh\OneDrive\Desktop\monuments\R (3).jpeg" alt="Taramati Baradari" height="200px" width="450px">
+                </div>
+                <div class="monument-content">
+                    <h2>Taramati Baradari</h2>
+                    <p class="monument-desc">Built during the reign of Ibrahim Quli Qutb Shah, this historical pavilion features 12 doorways designed with perfect acoustics. Legend has it that the structure was built for the courtier Taramati, whose voice could be heard at Golconda Fort when she sang here.</p>
+                      <!-- For Taramati Baradari -->
+                      <div class="buttons">
+                        <a href="https://maps.app.goo.gl/LPxa49gn7ogVT8YU7" class="map-btn">View on Map</a>
+                        <a href="monuments-booking.html?monument=Taramati+Baradari" class="book-btn">Book Now</a>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Monument 7: Paigah Tombs -->
+            <div class="monument-card">
+                <div class="monument-image">
+                    <img src="C:\Users\saadh\OneDrive\Desktop\monuments\bb1fe265310093.5af04d8edae45.jpg" alt="Paigah Tombs" height="200px" width="450px" >
+                </div>
+                <div class="monument-content">
+                    <h2>Paigah Tombs</h2>
+                    <p class="monument-desc">Often called the "Taj Mahal of the Deccan," these tombs belong to the noble Paigah family who were loyal to the Nizams. The intricately carved marble structures showcase a unique blend of Persian, Mughal, and Deccan architectural styles.</p>
+                     
+                    <!-- For Paigah Tombs -->
+                    <div class="buttons">
+                        <a href="https://maps.app.goo.gl/mqLd112hvwurV7Ne6" class="map-btn">View on Map</a>
+                        <a href="monuments-booking.html?monument=Paigah+Tombs" class="book-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monument 8: Falaknuma Palace -->
+            <div class="monument-card">
+                <div class="monument-image">
+                    <img src="C:\Users\saadh\OneDrive\Desktop\monuments\taj-falaknuma-palace-hyderabad-india-1920x1080.jpg" alt="Falaknuma Palace" height="200px" width="450px">
+                </div>
+                <div class="monument-content">
+                    <h2>Falaknuma Palace</h2>
+                    <p class="monument-desc">Built in 1894, this stunning palace in the shape of a scorpion belonged to the Nizam of Hyderabad. Now a luxury hotel, it features a magnificent blend of Italian and Tudor architecture with lavish interiors, including the world's longest dining table.</p>
+                    <div class="buttons">
+                        <a href="https://maps.app.goo.gl/8Mj8MAHQN9FwziHB9" class="map-btn">View on Map</a>
+                        <a href="https://www.tajhotels.com/en-in/hotels/taj-falaknuma-palace-hyderabad" class="book-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monument 9: Salar Jung Museum -->
+            <div class="monument-card">
+                <div class="monument-image">
+                    <img src="C:\Users\saadh\OneDrive\Desktop\monuments\1(17).jpg" alt="Salar Jung Museum" height="200px" width="450px">
+                </div>
+                <div class="monument-content">
+                    <h2>Salar Jung Museum</h2>
+                    <p class="monument-desc">One of the three National Museums of India, the Salar Jung Museum houses the world's largest one-man art collection, amassed by Nawab Salar Jung III. The museum showcases over 1 million artifacts including sculptures, paintings, textiles, and the famous Veiled Rebecca statue.</p>
+                    <!-- For Salar Jung Museum -->
+                    <div class="buttons">
+                        <a href="https://maps.app.goo.gl/8p9AtaVnxDnnvJQYA" class="map-btn">View on Map</a>
+                        <a href="monuments-booking.html?monument=Salar+Jung+Museum" class="book-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monument 10: Golconda Fort -->
+            <div class="monument-card">
+                <div class="monument-image">
+                    <img src="C:\Users\saadh\OneDrive\Desktop\monuments\Golconda-768x499.jpg" alt="Golconda Fort" height="200px" width="450px">
+                </div>
+                <div class="monument-content">
+                    <h2>Golconda Fort</h2>
+                    <p class="monument-desc">Dating back to the 13th century, this majestic fort was once the capital of the Qutb Shahi dynasty. Famous for its acoustic effects, brilliant architecture, and the Fateh Rahben gun, it offers spectacular views of the surrounding landscapes.</p>
+                    <div class="buttons">
+                        <a href="https://maps.app.goo.gl/1BqVakZnuh32Dn2AA" class="map-btn">View on Map</a>
+                        <a href="monuments-booking.html?monument=Golconda+Fort" class="book-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Historical Monuments of Hyderabad | Explore the Rich Heritage</p>
+    </footer>
+</body>
+
+<script>
+    // Add this script before the closing body tag
+    document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.monument-card');
+        
+        // Function to check if element is in viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Function to handle scroll animation
+        function handleScroll() {
+            cards.forEach(card => {
+                if (isInViewport(card) && !card.classList.contains('fade-in')) {
+                    card.classList.add('fade-in');
+                }
+            });
+        }
+
+        // Initial check for visible cards
+        handleScroll();
+
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll);
+    });
+</script>
+</html>
