@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tickets</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .ticket {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .ticket h3 {
+            color: #2563eb;
+            margin: 0 0 15px 0;
+            font-size: 1.5rem;
+        }
+        .ticket-details {
+            display: flex;
+            justify-content: space-between;
+        }
+        .status-active {
+            color: #059669;
+            font-weight: bold;
+        }
+        .booking-section {
+            margin: 20px auto;
+            max-width: 1200px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            color: #1e40af;
+            padding: 15px;
+            margin: 20px 0;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .ticket {
+            background: #f8fafc;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .ticket:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .ticket-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .status-active {
+            background: #dcfce7;
+            color: #059669;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        .no-bookings {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+            font-style: italic;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Add Back to Home button -->
+    <a href="index.html" class="back-btn">← Back to Home</a>
+
+    <!-- Update section titles -->
+    <div class="booking-section">
+        <h2 class="section-title">Park Bookings</h2>
+        <div id="parkBookings"></div>
+
+        <h2 class="section-title">Monument Bookings</h2>
+        <div id="monumentBookings"></div>
+
+        <h2 class="section-title">Zoo Bookings</h2>
+        <div id="zooBookings"></div>
+
+        <h2 class="section-title">Boating Bookings</h2>
+        <div id="boatingBookings"></div>
+    </div>
+
+    <script>
+        function displayBookings(bookings) {
+            if (!bookings.length) {
+                return '<div class="no-bookings">No bookings found</div>';
+            }
+
+            return bookings.map(booking => `
+                <div class="ticket">
+                    <h3>${booking.venueName || 'N/A'}</h3>
+                    <div class="ticket-details">
+                        <div class="left">
+                            <p><strong>Location:</strong> ${booking.location || 'N/A'}</p>
+                            <p><strong>Adult Tickets:</strong> ${booking.adultCount || 0}</p>
+                            <p><strong>Child Tickets:</strong> ${booking.childCount || 0}</p>
+                            <p><strong>Total Amount:</strong> ₹${booking.total || 0}</p>
+                        </div>
+                        <div class="right">
+                            <p><strong>Date:</strong> ${new Date(booking.date).toLocaleDateString()}</p>
+                            <p><strong>Status:</strong> <span class="status-${booking.status?.toLowerCase()}">${booking.status || 'Pending'}</span></p>
+                            <p><strong>Ref:</strong> ${booking.bookingRef || 'N/A'}</p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        window.onload = function() {
+            // Check if user is logged in
+            const currentUser = localStorage.getItem('currentUser');
+            if (!currentUser) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            const userId = JSON.parse(currentUser).email;
+            const categories = ['park', 'monument', 'zoo', 'boating'];
+            
+            categories.forEach(category => {
+                const storageKey = `${category}Bookings`;
+                let bookings = JSON.parse(localStorage.getItem(storageKey) || '[]')
+                    .filter(booking => booking.userId === userId);
+                
+                // Sort bookings by date (most recent first)
+                bookings.sort((a, b) => new Date(b.date) - new Date(a.date));
+                
+                document.getElementById(`${category}Bookings`).innerHTML = displayBookings(bookings);
+            });
+
+            // Display user name
+            const user = JSON.parse(currentUser);
+            if (user) {
+                document.getElementById('userName').textContent = `Welcome, ${user.name}`;
+            }
+        }
+    </script>
+</body>
+</html>
