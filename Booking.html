@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Tickets</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .booking-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .booking-form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .form-group select, .form-group input {
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .price-summary {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f3f4f6;
+            border-radius: 6px;
+        }
+
+        .submit-btn {
+            background: #2563eb;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="C:/Users/saadh/OneDrive/Desktop/Pics/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="Logo">
+        </div>
+        <div class="header-right">
+            <span id="userName"></span>
+            <button onclick="logout()" class="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <div class="booking-container">
+        <h2>Book Your Tickets</h2>
+        <form id="bookingForm" class="booking-form">
+            <div class="form-group">
+                <label for="category">Select Category</label>
+                <select id="category" required>
+                    <option value="">Choose a category</option>
+                    <option value="park">Parks</option>
+                    <option value="monument">Monuments</option>
+                    <option value="zoo">Zoo</option>
+                    <option value="boating">Boating</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="venue">Select Venue</label>
+                <select id="venue" required>
+                    <option value="">First select a category</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Select Date</label>
+                <input type="date" id="date" required min="">
+            </div>
+
+            <div class="form-group">
+                <label for="adultCount">Number of Adult Tickets</label>
+                <input type="number" id="adultCount" min="0" value="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="childCount">Number of Child Tickets</label>
+                <input type="number" id="childCount" min="0" value="0" required>
+            </div>
+
+            <div class="price-summary">
+                <h3>Price Summary</h3>
+                <p>Adult Tickets: ₹<span id="adultPrice">0</span></p>
+                <p>Child Tickets: ₹<span id="childPrice">0</span></p>
+                <p>Total Amount: ₹<span id="totalPrice">0</span></p>
+            </div>
+
+            <button type="submit" class="submit-btn">Confirm Booking</button>
+        </form>
+    </div>
+
+    <script>
+        // Set minimum date to today
+        document.getElementById('date').min = new Date().toISOString().split('T')[0];
+
+        // Venue options based on category
+        const venues = {
+            park: ['KBR Park', 'Lumbini Park', 'NTR Garden', 'Botanical Garden'],
+            monument: ['Charminar', 'Golconda Fort', 'Qutb Shahi Tombs'],
+            zoo: ['Nehru Zoological Park'],
+            boating: ['Hussain Sagar', 'Durgam Cheruvu']
+        };
+
+        // Prices for each category
+        const prices = {
+            park: { adult: 50, child: 30 },
+            monument: { adult: 50, child: 30 },
+            zoo: { adult: 100, child: 50 },
+            boating: { adult: 80, child: 40 }
+        };
+
+        // Update venues when category changes
+        document.getElementById('category').addEventListener('change', function() {
+            const venueSelect = document.getElementById('venue');
+            const selectedCategory = this.value;
+            
+            venueSelect.innerHTML = '<option value="">Select a venue</option>';
+            if (selectedCategory) {
+                venues[selectedCategory].forEach(venue => {
+                    venueSelect.innerHTML += `<option value="${venue}">${venue}</option>`;
+                });
+            }
+        });
+
+        // Calculate price
+        function updatePrice() {
+            const category = document.getElementById('category').value;
+            const adultCount = parseInt(document.getElementById('adultCount').value) || 0;
+            const childCount = parseInt(document.getElementById('childCount').value) || 0;
+
+            if (category && prices[category]) {
+                const adultPrice = prices[category].adult * adultCount;
+                const childPrice = prices[category].child * childCount;
+                const total = adultPrice + childPrice;
+
+                document.getElementById('adultPrice').textContent = adultPrice;
+                document.getElementById('childPrice').textContent = childPrice;
+                document.getElementById('totalPrice').textContent = total;
+            }
+        }
+
+        // Add event listeners for price calculation
+        ['category', 'adultCount', 'childCount'].forEach(id => {
+            document.getElementById(id).addEventListener('change', updatePrice);
+        });
+
+        // Handle form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const venueSelect = document.getElementById('venue');
+            const venueName = venueSelect.options[venueSelect.selectedIndex].text;
+            
+            const bookingData = {
+                category: document.getElementById('category').value,
+                venueName: venueName, // Use the actual text from the select option
+                date: document.getElementById('date').value,
+                adultCount: parseInt(document.getElementById('adultCount').value),
+                childCount: parseInt(document.getElementById('childCount').value),
+                total: parseInt(document.getElementById('totalPrice').textContent),
+                bookingRef: 'TKT' + Math.random().toString(36).substr(2, 6).toUpperCase(),
+                status: 'Active',
+                userId: JSON.parse(localStorage.getItem('currentUser')).email
+            };
+        
+            // Save booking with the correct category name
+            let storageKey;
+            switch(bookingData.category) {
+                case 'park':
+                    storageKey = 'parkBookings';
+                    break;
+                case 'monument':
+                    storageKey = 'monumentBookings';
+                    break;
+                case 'zoo':
+                    storageKey = 'zooBookings';
+                    break;
+                case 'boating':
+                    storageKey = 'boatingBookings';
+                    break;
+                default:
+                    storageKey = `${bookingData.category}Bookings`;
+            }
+        
+            const bookings = JSON.parse(localStorage.getItem(storageKey) || '[]');
+            bookings.push(bookingData);
+            localStorage.setItem(storageKey, JSON.stringify(bookings));
+        
+            alert('Booking confirmed! Your booking reference is: ' + bookingData.bookingRef);
+            window.location.href = 'mytickets.html';
+        });
+    </script>
+</body>
+</html>
