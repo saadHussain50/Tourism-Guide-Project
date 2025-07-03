@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worship Places in Hyderabad</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f0f4f8;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(to right, #4A90E2, #9013FE);
+            height: 100vh;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 3em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        header p {
+            font-size: 1.3em;
+            margin: 10px 0;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        nav {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1300px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            height: 400px;
+            margin-bottom: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-item {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .carousel-item.active {
+            opacity: 1;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .worship-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .worship-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .worship-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .worship-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .worship-card-content {
+            padding: 15px;
+        }
+
+        .worship-card h3 {
+            color: #D81B60;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .worship-card p {
+            font-size: 0.9em;
+            color: #555;
+        }
+        .location-link {
+      display: inline-block;
+      margin-top: 5px;
+      padding: 5px 10px;
+      background: #3498db;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 0.9em;
+      transition: background 0.3s ease;
+    }
+    .location-link:hover {
+      background: #2980b9;
+    }
+        /* Footer */
+        footer {
+            background: #2C3E50;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #FFD700;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .carousel {
+                height: 300px;
+            }
+
+            nav a {
+                margin: 0 10px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#temples">Temples</a>
+            <a href="#mosques">Mosques</a>
+            <a href="#churches">Churches</a>
+            <a href="#others">Others</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <h1>Worship Places in Hyderabad</h1>
+        <p>Journey Through the Soul of the City</p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Carousel -->
+        <div class="carousel">
+            <div class="carousel-item active">
+                <img src="C:\Users\saadh\OneDrive\Desktop\Pics\653ada55-1027-4818-a6e2-6f3bb86f52b2.jpeg" alt="Birla Mandir">
+                <div class="carousel-caption">
+                    <h3>Birla Mandir</h3>
+                    <p>A marble marvel atop Naubat Pahad</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="C:\Users\saadh\OneDrive\Desktop\Pics\8793_Mecca Masjid Hyderabad.webp" alt="Mecca Masjid">
+                <div class="carousel-caption">
+                    <h3>Mecca Masjid</h3>
+                    <p>Grandeur near Charminar</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="C:\Users\saadh\OneDrive\Desktop\Pics\st godge church.jpeg" alt="St. Joseph's Cathedral">
+                <div class="carousel-caption">
+                    <h3>St. Joseph’s Cathedral</h3>
+                    <p>Gothic serenity in Gunfoundry</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Worship Grid -->
+        <div class="worship-grid" id="temples">
+            <div class="worship-card">
+                <img src="C:\Users\saadh\OneDrive\Desktop\Pics\653ada55-1027-4818-a6e2-6f3bb86f52b2.jpeg" alt="Birla Mandir">
+                <div class="worship-card-content">
+                    <h3>Birla Mandir</h3>
+                    <p>A stunning white marble temple dedicated to Lord Venkateshwara with panoramic city views.</p>
+                    <a href="https://maps.app.goo.gl/zceCXHumvvL1PRf3A?g_st=aw" target="_blank" class="location-link">View on Map</a>
+                </div>
+            </div>
+            <div class="worship-card">
+                <img src="C:\Users\saadh\OneDrive\Desktop\Pics\Sri Jagannath Temple - Banjara Hills - Hyderabad.jpg" alt="Jagannath Temple">
+                <div class="worship-card-content">
+                    <h3>Jagannath Temple</h3>
+                    <p>Vibrant South Indian architecture in Banjara Hills, a spiritual retreat.</p>
+                    <a href="https://maps.app.goo.gl/s5MmbRrj9vrEDvEk6" target="_blank" class="location-link">View on Map</a>
+                </div>
+            </div>
+            <div class="worship-card">
+                <img src="C:\Users\saadh\OneDrive\Desktop\Pics\chilkur-balaji-temple-hyderabad-featured.jpg" alt="Chilkur Balaji">
+                <div class="worship-card-content">
+                    <h3>Chilkur Balaji Temple</h3>
+                    <p>The "Visa Temple" near Osman Sagar, known for its unique rituals.</p>
+                    <a href="https://maps.app.goo.gl/oxeskxhsimkhh6X879?g_st=aw" target="_blank" class="location-link">View on Map</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="worship-grid" id="mosques">
+            <div class="worship-card">
+                <img src="C:\Users\saadh\OneDrive\Desktop\Pics\8793_Mecca Masjid Hyderabad.webp" alt="Mecca Masjid">
+                <div class="worship-card-content">
+                    <h3>Mecca Masjid</h3>
+                    <p>One of India’s largest mosques, built with bricks from Mecca.</p>
+                    <a href="https://maps.app.goo.gl/r33kNC3VMJ3ymwtR8?g_st=aw" target="_blank" class="location-link">View on Map</a>
+                </div>
+            </div>
+            <div class="worship-card">
+                <img src="C:\Users\saadh\OneDrive\Desktop\Pics\dc-Cover-g8nuuasvb83lhe444tl9kc30p2-20161227020003.Medi.jpeg" alt="Spanish Mosque">
+                <div class="worship-card-content">
+                    <h3>Spanish Mosque</h3>
+                    <p>Moorish elegance in Begumpet, a hidden gem of Hyderabad.</p>
+                    <a href="https://maps.app.goo.gl/ztGVrnfVkM3wLQXj7?g_st=aw" target="_blank" class="location-link">View on Map</a>
+                </div>
+            </div>
+            <div class="worship-card">
+                <img src="C:\Users\saadh\OneDrive\Desktop\Pics\m_Moula Ali Dargah_5_l_452_602.avif" alt="Moula Ali Dargah">
+                <div class="worship-card-content">
+                    <h3>Moula Ali Dargah</h3>
+                    <p>A hilltop shrine with breathtaking views and spiritual significance.</p>
+                    <a href="https://maps.app.goo.gl/5G3b39VZb63ywjhV8?g_st=aw" target="_blank" class="location-link">View on Map</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="worship-grid" id="churches">
+            <div class="worship-card">
+                <img src="C:\Users\saadh\OneDrive\Desktop\Pics\R.jpeg" alt="St. Joseph’s Cathedral">
+                <div class="worship-card-content">
+                    <h3>St. Joseph’s Cathedral</h3>
+                    <p>Gothic architecture meets peace in Gunfoundry.</p>
+                    <a href="https://maps.app.goo.gl/J3RMrA149FnGiFke9?g_st=aw" target="_blank" class="location-link">View on Map</a>
+                </div>
+            </div>
+            <div class="worship-card">
+                <img src="C:\Users\saadh\OneDrive\Desktop\Pics\99f0d288-110f-4f55-b79a-c6a1a1909ce4.jpeg" alt="St. George’s Church">
+                <div class="worship-card-content">
+                    <h3>St. George’s Church</h3>
+                    <p>A historic Anglican church in Abids with timeless charm.</p>
+                    <a href="https://maps.app.goo.gl/DMZBEyJdTXmYYvS39?g_st=aw" target="_blank" class="location-link">View on Map</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="worship-grid" id="others">
+            <div class="worship-card">
+                <img src="C:\Users\saadh\OneDrive\Desktop\Pics\Jain-Temple-In-Ranakpur.webp" alt="Adinath Jain Temple">
+                <div class="worship-card-content">
+                    <h3>Shri Adinath Jain Temple</h3>
+                    <p>Intricate marble carvings in a serene city setting.</p>
+                    <a href="https://maps.app.goo.gl/AEhvpHNTVWLXpkbw7?g_st=aw" target="_blank" class="location-link">View on Map</a>
+                </div>
+            </div>
+            <div class="worship-card">
+                <img src="C:\Users\saadh\OneDrive\Desktop\Pics\4b1bc761-1b8e-415c-90e2-022699fa6eb5.jpeg" alt="Mahabodhi Buddha Vihara">
+                <div class="worship-card-content">
+                    <h3>Mahabodhi Buddha Vihara</h3>
+                    <p>A peaceful Buddhist retreat with a towering Buddha statue.</p>
+                    <a href="https://maps.app.goo.gl/6x4BogQhLBkQRtB8A?g_st=aw" target="_blank" class="location-link">View on Map</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>Contact Us: saadh5750@gmail.com | Helpline: 1800-XXX-XXXX</p>
+        <p><a href="#">X</a> | <a href="#">Instagram</a> | <a href="#">Facebook</a></p>
+        <p><em>Unite in Faith, Celebrate Diversity</em></p>
+    </footer>
+
+    <!-- Simple Carousel Script -->
+    <script>
+        const items = document.querySelectorAll('.carousel-item');
+        let currentIndex = 0;
+
+        function showNextItem() {
+            items[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % items.length;
+            items[currentIndex].classList.add('active');
+        }
+
+        setInterval(showNextItem, 5000); // Change every 5 seconds
+    </script>
+</body>
+</html>
