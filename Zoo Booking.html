@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoo Booking</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .booking-container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .price-info {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        .submit-btn {
+            background: #2e7d32;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #1b5e20;
+            transform: translateY(-2px);
+        }
+
+        header {
+            background: linear-gradient(135deg, #2e7d32, #388e3c);
+            padding: 2rem;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Book Your Zoo Visit</h1>
+        <p>Experience the wildlife up close</p>
+    </header>
+
+    <div class="booking-container">
+        <form id="bookingForm">
+            <div class="form-group">
+                <label for="location">Select Zoo</label>
+                <select id="location" required>
+                    <option value="">Choose a zoo...</option>
+                    <option value="nehru-zoo" data-price="100">Nehru Zoological Park</option>
+                    <option value="deer-park" data-price="50">Deer Park at KBR National Park</option>
+                    <option value="rabbit-farm" data-price="80">ANR Rabbit Farm</option>
+                    <option value="mir-alam" data-price="60">Mir Alam Tank</option>
+                    <option value="mrugavani" data-price="70">Mrugavani National Park</option>
+                    <option value="mahavir" data-price="90">Mahavir Harina Vanasthali National Park</option>
+                    <option value="kinnerasani" data-price="120">Kinnerasani Deer Park</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Visit Date</label>
+                <input type="date" id="date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="adultCount">Number of Adults (₹100 per person)</label>
+                <input type="number" id="adultCount" min="1" value="1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="childCount">Number of Children (₹50 per child)</label>
+                <input type="number" id="childCount" min="0" value="0" required>
+            </div>
+
+            <div class="price-info">
+                Total Amount: <span id="totalPrice">₹100</span>
+            </div>
+
+            <button type="submit" class="submit-btn">Book Now</button>
+        </form>
+    </div>
+
+    <script>
+        // Set minimum date to today
+        const dateInput = document.getElementById('date');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
+
+        function calculateTotal() {
+            const adultCount = parseInt(document.getElementById('adultCount').value) || 0;
+            const childCount = parseInt(document.getElementById('childCount').value) || 0;
+            const location = document.getElementById('location');
+            const selectedOption = location.options[location.selectedIndex];
+            const basePrice = selectedOption.dataset.price || 100;
+
+            const total = (adultCount * basePrice) + (childCount * (basePrice/2));
+            document.getElementById('totalPrice').textContent = `₹${total}`;
+            return total;
+        }
+
+        ['location', 'adultCount', 'childCount'].forEach(id => {
+            document.getElementById(id).addEventListener('change', calculateTotal);
+        });
+
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Check if user is logged in
+            const currentUser = localStorage.getItem('currentUser');
+            if (!currentUser) {
+                alert('Please login to make a booking');
+                window.location.href = 'login.html';
+                return;
+            }
+
+            const location = document.getElementById('location');
+            const bookingData = {
+                venueName: location.options[location.selectedIndex].text,
+                location: location.value,
+                date: document.getElementById('date').value,
+                adultCount: document.getElementById('adultCount').value,
+                childCount: document.getElementById('childCount').value,
+                total: calculateTotal(),
+                status: 'Active',
+                bookingRef: 'ZOO' + Date.now(),
+                userId: JSON.parse(currentUser).email
+            };
+
+            // Save booking
+            let zooBookings = JSON.parse(localStorage.getItem('zooBookings') || '[]');
+            zooBookings.push(bookingData);
+            localStorage.setItem('zooBookings', JSON.stringify(zooBookings));
+
+            alert('Booking successful! Redirecting to your tickets...');
+            window.location.href = 'mytickets.html';
+        });
+    </script>
+</body>
+</html>
