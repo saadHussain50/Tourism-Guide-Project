@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Parks in Hyderabad</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(135deg, purple, #00f2fe);
+      color: #333;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .park-list {
+      display: grid;
+      gap: 20px;
+    }
+    .park-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-left: 5px solid #3498db;
+      display: flex;
+      align-items: center;
+    }
+    .park-card:hover {
+      transform: translateX(10px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+    .park-icon {
+      width: 60px;
+      height: 60px;
+      margin-right: 20px;
+      background: #3498db;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5em;
+    }
+    .park-details h3 {
+      margin: 0 0 10px;
+      color: #2c3e50;
+      font-size: 1.4em;
+    }
+    .park-details p {
+      margin: 5px 0;
+      color: #7f8c8d;
+      line-height: 1.5;
+    }
+    .location-link {
+      display: inline-block;
+      margin-top: 5px;
+      padding: 5px 10px;
+      background: #3498db;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 0.9em;
+      transition: background 0.3s ease;
+    }
+    .location-link:hover {
+      background: #2980b9;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #7f8c8d;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Explore the Best Parks in Hyderabad</h1>
+    <div class="park-list">
+      <!-- Example for one park card, repeat for others -->
+      <div class="park-card">
+          <div class="park-details">
+            <img src="C:\Users\saadh\OneDrive\Desktop\PARKS\DSC_0122.JPG" alt="Sanjeevaiah Park" height="300px" width="800px">
+            <h3>Sanjeevaiah Park</h3>
+            <p><strong>Location:</strong> Near Hussain Sagar, Khairtabad</p>
+            <p><strong>Timings:</strong> 8 AM - 6 PM</p>
+            <p>A sprawling 92-acre park with lush greenery, rose gardens, and stunning lake views.</p>
+            <a href="https://goo.gl/maps/g3XtrBdbw59bXb9d8" target="_blank" class="location-link">View on Map</a>
+            <a href="park-booking.html?park=sanjeevaiah+park" class="location-link">Book Now</a>
+        </div>
+      </div>
+      <div class="park-card">
+        <div class="park-details">
+          <img src="C:\Users\saadh\OneDrive\Desktop\PARKS\Lumbini_Park,_Hyderabad.jpg" alt="Lumbini Park" height="300px" width="800px">
+          <h3>Lumbini Park</h3>
+          <p><strong>Location:</strong> Opposite Secretariat New Gate, Khairtabad</p>
+          <p><strong>Timings:</strong> 9 AM - 9 PM</p>
+          <p>Famous for its musical fountain, laser show, and boating facilities by Hussain Sagar Lake.</p>
+          <a href="https://goo.gl/maps/vh4zuHeeQSrejsmV8" target="_blank" class="location-link">View on Map</a>
+          <a href="park-booking.html?park=Lumbini+Park" target="_blank" class="location-link">Book Now</a>
+        </div>
+      </div>
+      <div class="park-card">
+        <div class="park-details">
+          <img src="C:\Users\saadh\OneDrive\Desktop\PARKS\ntr-gardens.jpg" alt="NTR Gardens" height="300px" width="800px">
+          <h3>NTR Gardens</h3>
+          <p><strong>Location:</strong> NTR Marg, Central Secretariat</p>
+          <p><strong>Timings:</strong> 9 AM - 9 PM</p>
+          <p>A compact park with a Japanese garden, toy train, and various fun activities for all ages.</p>
+          <a href="https://goo.gl/maps/Bkm9mET1o7bwvmdE7" target="_blank" class="location-link">View on Map</a>
+          <a href="park-booking.html?park=NTR+Gardens" target="_blank" class="location-link">Book Now</a>
+        </div>
+      </div>
+      <div class="park-card">
+        <div class="park-details">
+          <img src="C:\Users\saadh\OneDrive\Desktop\PARKS\8474917271_f9d7bf0343_b.jpg" alt="Lumbini Park" height="300px" width="800px">
+          <h3>Indira Park</h3>
+          <p><strong>Location:</strong> Lower Tank Bund Road, Domalguda</p>
+          <p><strong>Timings:</strong> 5 AM - 8 PM</p>
+          <p>A serene 76-acre park with a rock garden, boating, and diverse plant life.</p>
+          <a href="https://goo.gl/maps/1r5Z6Qt9G15LH5ue6" target="_blank" class="location-link">View on Map</a>
+          <a href="park-booking.html?park=Indira+Park" target="_blank" class="location-link">Book Now</a>
+        </div>
+      </div>
+      <div class="park-card">
+        <div class="park-details">
+          <img src="C:\Users\saadh\OneDrive\Desktop\PARKS\a-peacock-sits-on-the-fence-of-deer-park-in-new-468445.jpg" alt="Lumbini Park" height="300px" width="800px">
+          <h3>KBR National Park</h3>
+          <p><strong>Location:</strong> Road Number 2, Jubilee Hills</p>
+          <p><strong>Timings:</strong> 5:30 AM - 9:30 AM, 4 PM - 7 PM</p>
+          <p>A rich biodiversity hotspot with 140 bird species and a peaceful retreat in the city.</p>
+          <a href="https://goo.gl/maps/SF9sxHd66eK1umiw7" target="_blank" class="location-link">View on Map</a>
+          <a href="park-booking.html?park=KBR+National+Park" target="_blank" class="location-link">Book Now</a>
+        </div>
+      </div>
+      <div class="park-card">
+        <div class="park-details">
+          <img src="C:\Users\saadh\OneDrive\Desktop\PARKS\bbe042ec85fa09b4eee06d08158f5863.jpg" alt="NTR Gardens" height="300px" width="800px">
+          <h3>Public Garden (Bagh-e-Aam)</h3>
+          <p><strong>Location:</strong> Near Nampally Exhibition Grounds</p>
+          <p><strong>Timings:</strong> 6 AM - 8 PM</p>
+          <p>Hyderabad's oldest park, established in 1846, featuring historical charm and greenery.</p>
+          <a href="https://goo.gl/maps/RedHillsLakdikapulHyderabad" target="_blank" class="location-link">View on Map</a>
+          <a href="park-booking.html?park=Public+Garden" target="_blank" class="location-link">Book Now</a>
+        </div>
+      </div>
+      <div class="park-card">
+        <div class="park-details">  
+          <h3>Priyadarshini Park</h3>
+          <img src="C:\Users\saadh\OneDrive\Desktop\PARKS\R (1).jpeg" alt="NTR Gardens" height="300px" width="800px">
+          <p><strong>Location:</strong> Adjacent to Saroornagar Lake</p>
+          <p><strong>Timings:</strong> 6 AM - 8 PM</p>
+          <p>A beautifully landscaped park with lake views, perfect for relaxation and evening walks.</p>
+          <a href="https://goo.gl/maps/o7M4v5QgpERunjb9A" target="_blank" class="location-link">View on Map</a>
+          <a href="park-booking.html?park=Priyadarshini+Park" target="_blank" class="location-link">Book Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>Discover more about Hyderabad's natural beauty! Last updated: March 09, 2025.</p>
+    </div>
+  </div>
+</body>
+</html>
