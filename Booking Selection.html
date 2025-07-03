@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Booking Category</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .selection-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 600px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            margin-bottom: 2rem;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .category-card {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: #667eea;
+        }
+
+        .category-card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+        }
+
+        .category-card h3 {
+            margin: 0;
+            color: #4a5568;
+        }
+
+        .back-btn {
+            display: block;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="selection-container">
+        <h1>Select Booking Category</h1>
+        <div class="category-grid">
+            <div class="category-card" onclick="window.location.href='parks.html'">
+                <img src="C:/Users/saadh/OneDrive/Desktop/Pics/Park-logos-design-vector-set-08.jpg" alt="Parks">
+                <h3>Parks</h3>
+            </div>
+            <div class="category-card" onclick="window.location.href='monuments.html'">
+                <img src="C:/Users/saadh/OneDrive/Desktop/monuments/hyderabad-logo-with-charminar-hyderabad-city-flat-logo-design-with-iconic-place-vector.jpg" alt="Monuments">
+                <h3>Monuments</h3>
+            </div>
+            <div class="category-card" onclick="window.location.href='zoo.html'">
+                <img src="C:/Users/saadh/OneDrive/Desktop/Pics/c3a7d670-7b41-4cf8-88bb-8e057cdee083.jpeg" alt="Zoo">
+                <h3>Zoo</h3>
+            </div>
+            <div class="category-card" onclick="window.location.href='boating.html'">
+                <img src="C:/Users/saadh/OneDrive/Desktop/Pics/boat.jpeg" alt="Boating">
+                <h3>Boating</h3>
+            </div>
+        </div>
+        <a href="index.html" class="back-btn">← Back to Home</a>
+    </div>
+</body>
+</html>
